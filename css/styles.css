@@ -16,3 +16,7 @@ h4, p {
   border-color: grey;
   border-width: thin;
 }
+
+.button-label {
+  font-style: oblique;
+}

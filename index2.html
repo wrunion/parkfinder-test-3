@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Parkfinder</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--Bootstrap, Google fonts, and my custom CSS-->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700|Raleway" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+  <!--jQuery and my custom JS-->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+  <script src="https://kit.fontawesome.com/c04ff972e0.js"></script>
+  <script src="js/scripts2.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Choose which amenities you'd like, to see which parks have them!</h2>
+
+    <form>
+      <div class="radio-table">
+        <table style="width:100%">
+          <tr>
+            <td><label class="radio-inline">Playground</td>
+              <td>
+              <input type="radio" name="playground" value="true">
+              Want
+            </td>
+            <!-- <td>
+            <label class="radio">
+            <input type="radio" name="playground" value="false" checked>
+            Preferred
+          </label>
+          </td> -->
+          <td>
+            <label class="radio">
+              <input type="radio" name="playground" value="false" checked>
+              Don't care
+            </label>
+          </td><br>
+        </tr>
+        <tr>
+          <td><label class="radio-inline">Playground</td>
+            <td>
+            <input type="radio" name="playground" value="true">
+            Want
+          </td>
+          <!-- <td>
+          <label class="radio">
+          <input type="radio" name="playground" value="false" checked>
+          Preferred
+        </label>
+        </td> -->
+        <td>
+          <label class="radio">
+            <input type="radio" name="playground" value="false" checked>
+            Don't care
+          </label>
+        </td><br>
+      </tr>
+      <tr>
+        <td><label class="radio-inline">Playground</td>
+          <td>
+          <input type="radio" name="playground" value="true">
+          Want
+        </td>
+        <!-- <td>
+        <label class="radio">
+        <input type="radio" name="playground" value="false" checked>
+        Preferred
+      </label>
+      </td> -->
+      <td>
+        <label class="radio">
+          <input type="radio" name="playground" value="false" checked>
+          Don't care
+        </label>
+      </td><br>
+    </tr>
+    <tr>
+      <td><label class="radio-inline">Playground</td>
+        <td>
+        <input type="radio" name="playground" value="true">
+        Want
+      </td>
+      <!-- <td>
+      <label class="radio">
+      <input type="radio" name="playground" value="false" checked>
+      Preferred
+    </label>
+    </td> -->
+    <td>
+      <label class="radio">
+        <input type="radio" name="playground" value="false" checked>
+        Don't care
+      </label>
+    </td><br>
+  </tr>
+  <tr>
+    <td><label class="radio-inline">Playground</td>
+      <td>
+      <input type="radio" name="playground" value="true">
+      Want
+    </td>
+    <!-- <td>
+    <label class="radio">
+    <input type="radio" name="playground" value="false" checked>
+    Preferred
+  </label>
+  </td> -->
+  <td>
+    <label class="radio">
+      <input type="radio" name="playground" value="false" checked>
+      Don't care
+    </label>
+  </td><br>
+</tr>
+<tr>
+  <td><label class="radio-inline">Playground</td>
+    <td>
+    <input type="radio" name="playground" value="true">
+    Want
+  </td>
+  <!-- <td>
+  <label class="radio">
+  <input type="radio" name="playground" value="false" checked>
+  Preferred
+</label>
+</td> -->
+<td>
+  <label class="radio">
+    <input type="radio" name="playground" value="false" checked>
+    Don't care
+  </label>
+</td><br>
+</tr>
+<tr>
+  <td><label class="radio-inline">Playground</td>
+    <td>
+    <input type="radio" name="playground" value="true">
+    Want
+  </td>
+  <!-- <td>
+  <label class="radio">
+  <input type="radio" name="playground" value="false" checked>
+  Preferred
+</label>
+</td> -->
+<td>
+  <label class="radio">
+    <input type="radio" name="playground" value="false" checked>
+    Don't care
+  </label>
+</td><br>
+</tr>
+<tr>
+  <td><label class="radio-inline">Playground</td>
+    <td>
+    <input type="radio" name="playground" value="true">
+    Want
+  </td>
+  <!-- <td>
+  <label class="radio">
+  <input type="radio" name="playground" value="false" checked>
+  Preferred
+</label>
+</td> -->
+<td>
+  <label class="radio">
+    <input type="radio" name="playground" value="false" checked>
+    Don't care
+  </label>
+</td><br>
+</tr>
+</table>
+        <td></td>
+
+          <!-- SAMPLE WITHOUT BEING IN TABLE ROWS
+
+          <label class="radio-inline">Parking
+            <input type="radio" name="parking" value="true">
+            Want
+          </label>
+          <label class="radio">
+          <input type="radio" name="parking" value="false" checked>
+          Preferred
+        </label>
+          <label class="radio">
+            <input type="radio" name="parking" value="false" checked>
+            Don't care
+          </label> -->
+
+
+        <div class="checkboxes">
+          <input type="checkbox" name="amenities" value="playground" id="playground">Pegasus Playground<br>
+          <input type="checkbox" name="amenities" value="parking" id="parking">Broomstick Parking<br>
+          <input type="checkbox" name="amenities" value="garden" id="garden" ">Fairy Garden<br>
+      <input type="checkbox" name="amenities" value="restroom" id="restroom">Restroom<br>
+          <input type="checkbox" name="amenities" value="accessibility" id="accessibility">Hoverchair Accessibility<br>
+          <input type="checkbox" name="amenities" value="zone" id="zone">Ghost Zone<br>
+          <input type="checkbox" name="amenities" value="pool" id="pool">Mermaid Pool<br><br>
+        </div>
+        <div><button type="submit" class="form-control">Submit</button></div>
+    </form><br>
+    <!-- <button type="button" class="btn btn-outline-dark" onclick="showAllParks()">Show All Parks</button>
+  <button type="button" class="btn btn-outline-dark" onclick="hideAllParks()">Hide All Parks</button>
+  <br> -->
+
+    <!--Results div-->
+    <div class="container" id="results">
+      <div class="row">
+        <div id="rainbow-result" class="col-sm-6 hidden">
+          <h5>Rainbow Park</h5>
+          <i class="fas fa-cloud-sun"></i>
+          <p>(Awesome info about the park goes here.)</p>
+        </div>
+        <div id="unicorn-result" class="col-sm-6 hidden">
+          <h5>Unicorn Park</h5>
+          <i class="fas fa-cloud-sun"></i>
+          <p>(Awesome info about the park goes here.)</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="hobbit-result" class="col-sm-6 hidden">
+          <h5>Hobbit Park</h5>
+          <i class="fas fa-cloud-sun"></i>
+          <p>(Awesome info about the park goes here.)</p>
+        </div>
+        <div id="dragon-result" class="col-sm-6 hidden">
+          <h5>Dragon Park</h5>
+          <i class="fas fa-cloud-sun"></i>
+          <p>(Awesome info about the park goes here.)</p>
+        </div>
+        <div id="galaxy-result" class="col-sm-6 hidden">
+          <h5>Galaxy Park</h5>
+          <i class="fas fa-cloud-sun"></i>
+          <p>(Awesome info about the park goes here.)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
