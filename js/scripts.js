@@ -39,7 +39,7 @@ function displayResult() {
   });
 }
 
-// NOTE: Alright so here's the issue; I know how to get the data back from the user, and console.log that as an array. (If you check out the console on the test site, you can see that it's working.) I also know how to loop through the park objects and find ones that match a set of parameters (example below.)
+// NOTE: Alright so here's the issue; I know how to get the data back from the user, and console.log that as an array. (If you check out the console on the test site, you can see that it's working.) I also know how to loop through the park objects and find ones that match a set of parameters (example above.)
 //
 // The big step that I'm missing is: how can I get the results from the userInputs array, and use them to populate the getResult function?
 
