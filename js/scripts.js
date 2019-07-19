@@ -22,26 +22,34 @@ var galaxyPark = new Park("Galaxy Park", "galaxy", false, true, true, true, fals
 var parkObjects = [rainbowPark, unicornPark, dragonPark, hobbitPark, galaxyPark];
 
 //Let's assume our user wants restrooms and a park.
-var userInputs = [];
+var resultsArray = [];
 
 function getResult() {
   parkObjects.forEach(function(park) {
   if ((park.restroom === true) && (park.parking === true)) {
-    userInputs.push(park.keyword);
+    resultsArray.push(park.keyword);
   }
   });
 }
 
 function displayResult() {
-  userInputs.forEach(function(park) {
+  resultsArray.forEach(function(park) {
     var text = document.getElementById(park + "-result");
     text.style.display = "block";
   });
 }
 
+// NOTE: Alright so here's the issue; I know how to get the data back from the user, and console.log that as an array. (If you check out the console on the test site, you can see that it's working.) I also know how to loop through the park objects and find ones that match a set of parameters (example below.)
+//
+// The big step that I'm missing is: how can I get the results from the userInputs array, and use them to populate the getResult function?
+
+//Or am I thinking about this the wrong way entirely?
 
 
-resultsArray = [];
+
+
+
+userInputs = [];
 
 //UI Logic
 $(document).ready(function() {
@@ -51,9 +59,9 @@ $(document).ready(function() {
     //Clear the form here
 
     $("input:checkbox[name=amenities]:checked").each(function() {
-      resultsArray.push($(this).val());
+      userInputs.push($(this).val());
     });
 
-    console.log(resultsArray);
+    console.log(userInputs);
   });
 });
