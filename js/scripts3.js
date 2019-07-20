@@ -1,126 +1,135 @@
+/*jshint esversion: 6 */
+
 //Business Logic
-function Park(name, keyword, playground, parking, garden, restroom, accessibility, zone, pool) {
+function Park(name, keyword, amenities) {
   this.name = name;
   this.keyword = keyword;
-  this.playground = playground;
-  this.parking = parking;
-  this.garden = garden;
-  this.restroom = restroom;
-  this.accessibility = accessibility;
-  this.zone = zone;
-  this.pool = pool;
+  this.amenities = amenities;
 }
 
-//Create a new object for each park
-var rainbowPark = new Park("Rainbow Park", "rainbow", true, false, true, true, false, true, true);
-var unicornPark = new Park("Unicorn Park", "unicorn", true, true, false, true, true, false, true);
-var dragonPark = new Park("Dragon Park", "dragon", false, true, true, true, false, true, true);
-var hobbitPark = new Park("Hobbit Park", "hobbit", true, false, true, true, true, false, false);
-var galaxyPark = new Park("Galaxy Park", "galaxy", false, true, true, true, false, true, false);
+//Create a new object for each park, listing its name, keyword, and amenities
+var rainbowPark = new Park("Rainbow Park", "rainbow", ["rainbow", "playground", "parking", "garden", "restroom", "zone"]);
+var unicornPark = new Park("Unicorn Park", "unicorn", ["unicorn", "playground", "parking", "restroom", "accessibility", "pool"]);
+var dragonPark = new Park("Dragon Park", "dragon", ["dragon", "parking", "garden", "restroom", "accessibility", "zone", "pool"]);
+var hobbitPark = new Park("Hobbit Park", "hobbit", ["hobbit", "playground", "garden",  "restroom", "accessibility", "pool"]);
+var galaxyPark = new Park("Galaxy Park", "galaxy", ["galaxy", "parking", "garden", "accessibility", "zone", "pool"]);
+
+//Amenities arrays
+var rainbowAmenities = rainbowPark.amenities;
+var unicornAmenities = unicornPark.amenities;
+var dragonAmenities = dragonPark.amenities;
+var hobbitAmenities = hobbitPark.amenities;
+var galaxyAmenities = galaxyPark.amenities;
 
 //Array of park objects
 var parkObjects = [rainbowPark, unicornPark, dragonPark, hobbitPark, galaxyPark];
+//Array of park keywords, useful for manipulating the DOM
 var parkKeywords = ["rainbow", "unicorn", "dragon", "hobbit", "galaxy"];
 
-//TO COMPARE THE ARRAYS:
-//https://codeburst.io/comparison-of-two-arrays-using-javascript-3251d03877fe
+//An array of all available amenities
+var amenities = ["playground", "parking", "garden", "restroom", "accessibility", "zone", "pool"];
 
 
+// var parks = [
+//     'unicorn playground restroom',
+//     'joe shmoe boo',
+//     'rainbow restroom playground joy ha'];
 
-//Let's assume our user wants restrooms and a park.
-// var resultsArray = [];
+var allAmenities = [rainbowAmenities, unicornAmenities, dragonAmenities, hobbitAmenities, galaxyAmenities];
+var results = [];
 
-// function getResult() {
+function findRequiredMatches() {
+    var containsAll;
+    for (var i = 0; i < allAmenities.length; i++) {
+        containsAll = true;
+        for (var j = 0; j < requiredAmenities.length; j++) {
+            if (allAmenities[i].indexOf(requiredAmenities[j]) === -1) {
+                containsAll = false;
+                break;
+            }
+        }
+        if (containsAll) results.push(allAmenities[i]);
+    }
+    console.log(results);
+}
+
+nameArray = [];
+
+function getNames() {
+    for (var i=0; i<results.length; i++) {
+      var a = results[0];
+      var final = a.shift();
+      nameArray.push(final);
+      results.splice(-1);
+    }
+}
+
+//Create arrays for each object that we can compare to results array
+// function createAmenitiesArray(parkName) {
 //   parkObjects.forEach(function(park) {
-//   if ((park.restroom === true) && (park.parking === true)) {
-//     resultsArray.push(park.keyword);
-//   }
-//   });
-// }
-//
-// function displayResult() {
-//   resultsArray.forEach(function(park) {
-//     var text = document.getElementById(park + "-result");
-//     text.style.display = "block";
+//     return parkName.
 //   });
 // }
 
 
-trueFalseUserInputs = [];
-preferredAmenities = [];
+function showRainbowPark() {
+  var text = document.getElementById("rainbow-result");
+  text.style.display = "block";
+}
+
+function showUnicornPark() {
+  var text = document.getElementById("unicorn-result");
+  text.style.display = "block";
+}
+
+function showDragonPark() {
+  var text = document.getElementById("dragon-result");
+  text.style.display = "block";
+}
+
+function showHobbitPark() {
+  var text = document.getElementById("hobbit-result");
+  text.style.display = "block";
+}
+
+function showGalaxyPark() {
+  var text = document.getElementById("galaxy-result");
+  text.style.display = "block";
+}
+
+//Array of park objects
+var parkObjects = [rainbowPark, unicornPark, dragonPark, hobbitPark, galaxyPark];
+//Array of park keywords, useful for manipulating the DOM
+var parkKeywords = ["rainbow", "unicorn", "dragon", "hobbit", "galaxy"];
+
+//An array of all available amenities
+var amenities = ["playground", "parking", "garden", "restroom", "accessibility", "zone", "pool"];
+var requiredAmenities = [];
+var preferredAmenities = [];
 
 //UI Logic
 $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
-
+    $("form").hide();
     //Clear the form here
     //Have a popup box to tell them to answer all the questions if they haven't
-
-    var amenities = ["playground", "parking", "garden", "restroom", "accessibility", "zone", "pool"];
 
     amenities.forEach(function(amenity) {
       var amenityValue = $("input:radio[name=" + amenity + "]:checked").val();
       if (amenityValue === "true") {
-        trueFalseUserInputs.push(true);
-      } else if (amenityValue === "false") {
-        trueFalseUserInputs.push(false);
-      } else {
-        trueFalseUserInputs.push(false);
-        preferredAmenities.push(amenityValue);
+        requiredAmenities.push(amenity);
+      } else if (amenityValue === "preferred") {
+        preferredAmenities.push(amenity);
       }
     });
 
-
-    //
-    // var playgroundValue = $("input:radio[name=playground]:checked").val();
-    // console.log(playgroundValue);
-    // if (playgroundValue === "true") {
-    //   trueFalseUserInputs.push(true);
-    // } else if (playgroundValue === "false") {
-    //   trueFalseUserInputs.push(false);
-    // } else {
-    //   trueFalseUserInputs.push(false);
-    //   preferredAmenities.push(playgroundValue);
-    // }
-    //
-    // var parkingValue = $("input:radio[name=parking]:checked").val();
-    // console.log(parkingValue);
-    // if (parkingValue === "true") {
-    //   trueFalseUserInputs.push(true);
-    // } else if (parkingValue === "false") {
-    //   trueFalseUserInputs.push(false);
-    // } else {
-    //   trueFalseUserInputs.push(false);
-    //   preferredAmenities.push(parkingValue);
-    // }
-    //
-    // var gardenValue = $("input:radio[name=garden]:checked").val();
-    // console.log(gardenValue);
-    // if (gardenValue === "true") {
-    //   trueFalseUserInputs.push(true);
-    // } else if (gardenValue === "false") {
-    //   trueFalseUserInputs.push(false);
-    // } else {
-    //   trueFalseUserInputs.push(false);
-    //   preferredAmenities.push(gardenValue);
-    // }
-    //
-    // var restroomValue = $("input:radio[name=restroom]:checked").val();
-    // console.log(restroomValue);
-    // if (restroomValue === "true") {
-    //   trueFalseUserInputs.push(true);
-    // } else if (restroomValue === "false") {
-    //   trueFalseUserInputs.push(false);
-    // } else {
-    //   trueFalseUserInputs.push(false);
-    //   preferredAmenities.push(restroomValue);
-    // }
-    //
-
-
-    console.log(trueFalseUserInputs);
-    console.log(preferredAmenities);
+    console.log(requiredAmenities);
+    findRequiredMatches();
+    // getNames();
+    // console.log(nameArray);
+    // console.log(preferredAmenities);
+    // console.log(results);
     // .each(function() {
     //   userInputs.push($(this).val());
     // });

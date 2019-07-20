@@ -258,30 +258,30 @@ function showAllParks() {
 }
 
 //Simple functions to show the parks (pure JS version)
-// function showUnicornPark() {
-//   var text = document.getElementById("unicorn-result");
-//   text.style.display = "block";
-// }
-//
-// function showUnicornPark() {
-//   var text = document.getElementById("unicorn-result");
-//   text.style.display = "block";
-// }
-//
-// function showDragonPark() {
-//   var text = document.getElementById("dragon-result");
-//   text.style.display = "block";
-// }
-//
-// function showHobbitPark() {
-//   var text = document.getElementById("hobbit-result");
-//   text.style.display = "block";
-// }
-//
-// function showGalaxyPark() {
-//   var text = document.getElementById("galaxy-result");
-//   text.style.display = "block";
-// }
+function showUnicornPark() {
+  var text = document.getElementById("unicorn-result");
+  text.style.display = "block";
+}
+
+function showUnicornPark() {
+  var text = document.getElementById("unicorn-result");
+  text.style.display = "block";
+}
+
+function showDragonPark() {
+  var text = document.getElementById("dragon-result");
+  text.style.display = "block";
+}
+
+function showHobbitPark() {
+  var text = document.getElementById("hobbit-result");
+  text.style.display = "block";
+}
+
+function showGalaxyPark() {
+  var text = document.getElementById("galaxy-result");
+  text.style.display = "block";
+}
 
 //Simple functions to hide the parks
 function hideRainbowPark() {
