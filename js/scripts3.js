@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 
 //Business Logic
+//Park constructor function
 function Park(name, keyword, amenities) {
   this.name = name;
   this.keyword = keyword;
@@ -11,7 +12,7 @@ function Park(name, keyword, amenities) {
 var rainbowPark = new Park("Rainbow Park", "rainbow", ["rainbow", "playground", "parking", "garden", "restroom", "zone"]);
 var unicornPark = new Park("Unicorn Park", "unicorn", ["unicorn", "playground", "parking", "restroom", "accessibility", "pool"]);
 var dragonPark = new Park("Dragon Park", "dragon", ["dragon", "parking", "garden", "restroom", "accessibility", "zone", "pool"]);
-var hobbitPark = new Park("Hobbit Park", "hobbit", ["hobbit", "playground", "garden",  "restroom", "accessibility", "pool"]);
+var hobbitPark = new Park("Hobbit Park", "hobbit", ["hobbit", "playground", "garden", "restroom", "accessibility", "pool"]);
 var galaxyPark = new Park("Galaxy Park", "galaxy", ["galaxy", "parking", "garden", "accessibility", "zone", "pool"]);
 
 //Amenities arrays
@@ -36,6 +37,9 @@ var amenities = ["playground", "parking", "garden", "restroom", "accessibility",
 //     'rainbow restroom playground joy ha'];
 
 var allAmenities = [rainbowAmenities, unicornAmenities, dragonAmenities, hobbitAmenities, galaxyAmenities];
+
+//ALERT: something below isn't working right; I don't get all the results that I should. The specific problem is with "accessibilty," so I'm guessing it may be a spelling issue.
+
 var results = [];
 
 function findRequiredMatches() {
@@ -55,14 +59,49 @@ function findRequiredMatches() {
 
 nameArray = [];
 
-function getNames() {
-    for (var i=0; i<results.length; i++) {
-      var a = results[0];
-      var final = a.shift();
-      nameArray.push(final);
-      results.splice(-1);
-    }
+    function getNames() {
+      for (var i=0; i<results.length; i++) {
+        var a = results[0];
+        var final = a.shift();
+        nameArray.push(final);
+        results.splice(-1);
+      }
+  }
+
+function getKeywords() {
+    results.forEach(function(result) {
+    resultKeyword = result.shift();
+    nameArray.push(resultKeyword);
+  });
+    console.log(nameArray);
 }
+
+//The two functions below can be refactored into one.
+function displayResults() {
+  nameArray.forEach(function(name) {
+    $("#" + name + "-result").show();
+  });
+}
+
+function displayNoResults() {
+  $("#no-result-message").show();
+  showAllParks();
+
+}
+
+function showAllParks() {
+  parkKeywords.forEach(function(park) {
+    $("#" + park + "-result").show();
+  });
+}
+
+//To hide all parks with jQuery
+function hideAllParks() {
+  parkKeywords.forEach(function(park) {
+    $("#" + park + "-result").hide();
+  });
+}
+
 
 //Create arrays for each object that we can compare to results array
 // function createAmenitiesArray(parkName) {
@@ -109,6 +148,7 @@ var preferredAmenities = [];
 
 //UI Logic
 $(document).ready(function() {
+  $("#no-results").hide();
   $("form").submit(function(event) {
     event.preventDefault();
     $("form").hide();
@@ -126,6 +166,14 @@ $(document).ready(function() {
 
     console.log(requiredAmenities);
     findRequiredMatches();
+    getKeywords();
+
+    if (nameArray.length > 0) {
+      displayResults();
+    } else {
+      displayNoResults();
+    }
+
     // getNames();
     // console.log(nameArray);
     // console.log(preferredAmenities);

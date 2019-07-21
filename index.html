@@ -135,7 +135,10 @@
   <br> -->
 
     <!--Results div-->
-    <div class="container" id="results">
+    <div class="no-results" id="no-results" class="hidden">
+      <p>We're sorry! No parks match your search. <br><br><button type="button" class="btn btn-outline-dark" onclick="showAllParks()">See all parks here</button> or <button type="button" id="reload" class="btn btn-outline-dark" onclick="location.reload()">Try again!</button></p>
+    </div>
+    <div class="container" id="results" class="hidden">
       <div class="row">
         <div id="rainbow-result" class="col-sm-6 hidden">
           <h5>Rainbow Park</h5>
